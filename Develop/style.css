@@ -100,3 +100,9 @@ body {
   transition: all .3s ease-in-out;
   color: whitesmoke;
 }
+
+.description textarea {
+width: max-content;
+height: max-content;
+background-color: transparent;
+}
