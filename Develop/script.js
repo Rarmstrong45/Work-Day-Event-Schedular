@@ -19,6 +19,27 @@ function displayTime() {
 displayTime();
 
 
+$(".row").on("click", "a", function () {
+    eventText = $(this).siblings("textarea").val().trim();
+    console.log(eventText);
+    taskIndex = $(this).closest(".row").index();
+    //   console.log(taskIndex);
+    eventTime = $(this).closest(".row").attr("id");
+    //check for task update. if updating, replace event of index in array
+    // console.log(taskIndex)
+    tasks[taskIndex] = {
+      event: eventText,
+      time: eventTime,
+    };
+    saveTasks();
+    console.log(tasks);
+  });
+  
+  //save tasks in localstorage
+  var saveTasks = function () {
+    localStorage.setItem("savedTasks", JSON.stringify(tasks));
+  };
+
 // I believe I messed up and put a <text input> rather than text area
 
 // I will come back and redo challenge and re submit.
